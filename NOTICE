@@ -1,0 +1,36 @@
+# Third-Party Notices
+
+## Runtime Dependencies
+
+This agent runs within the DesireCore Agent Operating System. The following
+dependencies are provided by the runtime environment and are **not** bundled
+with this agent:
+
+| Dependency | Version | License | Source |
+|---|---|---|---|
+| Python | ≥ 3.8 | PSF License | [python.org](https://www.python.org/) |
+| Node.js | (runtime) | MIT License | [nodejs.org](https://nodejs.org/) |
+
+**Python standard library only**: The core calculation script (`recalc.py`) uses
+only the Python standard library (`argparse`, `json`, `os`, `re`, `sys`). No
+third-party Python packages are required or installed.
+
+## Cloud Model Processing
+
+When configured for cloud model access (e.g., via `desirecore-cloud` provider),
+text and image inputs may be sent to external model APIs for inference. This is
+governed by the DesireCore compute configuration, not by this agent. Users
+should review their provider's data handling policies separately.
+
+## No Vendored Dependencies
+
+This agent does not vendor, copy, or redistribute any third-party source code.
+All external capabilities (browser tools, image generation, PDF processing,
+etc.) are provided by the DesireCore platform and subject to their respective
+licenses.
+
+## Synthetic Test Materials
+
+All test data, company names, certificates, stamps, and signatures in the
+evaluation materials are synthetic and fictional. They do not represent any
+real entity and must not be used for actual bidding or procurement.
