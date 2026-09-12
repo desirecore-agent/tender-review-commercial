@@ -1,15 +1,32 @@
 ---
 name: tender-price-recalc
-description: Precision commercial bid price recalculation skill. Performs exact decimal arithmetic for amount summation, quantity × unit price totals, yuan ↔ wan_yuan unit conversion, and specified rounding (e.g., ROUND_HALF_UP to fen/yuan); input/output are Draft-07 Schema JSON; rejects unknown currencies/tax bases, non-finite numbers, and null values (null is not treated as zero); never modifies the original bid, never fabricates policy evaluation discounts, and provides candidate corrections rather than declaring invalidity.
+version: "0.2.0"
+description: Find material calculation errors and incompatible pricing bases, with reproducible explanations.
 ---
 
-# Commercial Bid Price Precision Recalculation (tender-price-recalc)
+# Commercial price review
 
-## Receiving a delegated business task
+## Outcome and acceptance
 
-For a received business delegation or delegated correction, actually load this installed Skill and inspect the complete original request and TaskSpec in the current verified file-backed delegation body, with their file identities. This supplied content does not require a redundant tool Read. If it is absent, actually Read the explicitly authorized original files; missing content or identities blocks business. Never report a tool Read that did not occur. Actual business documents/images must still be read using real tools. Verify their supplied full hashes, task/revision, applicable constraints, output ownership and the actual current preflight receipt. A summary or previous installation check is insufficient. Missing, unavailable, mismatched or unsatisfied bindings mean blocked/unverified before business work; request correction without widening scope. Use only the task-required reviewed helpers and this role's verified environment; do not install substitutes, write runtimes under Agent source, or borrow another role's interpreter. Report real Read/Skill and execution evidence, including failures. Direct non-delegated user requests follow the existing authorized workflow; this TaskSpec reception condition applies only to delegations. The published finite metadata-preflight bootstrap remains nonrecursive and does not authorize business work.
+Find material calculation errors and incompatible pricing bases, with reproducible explanations.
 
-Runtime location (conditional): apply the following discovery and receipt checks only when the current task explicitly depends on an initialized and verified role-owned environment. A text-only task with no such dependency does not require a runtime receipt and must not be blocked solely because none exists. This does not waive any applicable installed Skill requirement to use its formal helper or validator in a verified environment; resolve a missing required binding before that execution. When this condition applies, confirm the current ToolCatalog parameters, then use read-only `ManageWorkDirs({"action":"list","scope":"current"})`; do not switch cwd, add grants or query other Agents/global scope. The list may include merged team/global directories: do not select those, or infer private ownership from primary/cwd/parent paths. If no unambiguous own private workspace is identifiable, stop. Team cwd is not the role's private workspace, and Managed runtimes base Python is not its existing venv. In an unambiguously role-owned registered private workspace, read `.runtime/<skill-name>/runtime-receipt.md` (substitute this Skill's name) or an exact current initialization receipt authorized by this task. Its real initialization owner records non-secret actual interpreter/prefix, helper/lock hashes, versions and verification evidence; existing environments are not moved. The Markdown receipt is immutable after creation; a later initialization uses a new explicitly supplied path/hash rather than overwriting it. The member provides the exact receipt binding through actual authorized delivery; no caller guesses it or silently scans alternatives. Verify these against current task bindings; a receipt grants no access and is not proof of readiness. Missing directory/receipt/identity means blocked pending exact bindings, never old-case/history search or a substitute pip install.
+**Good:** Preserve declared values; show independently calculated values, formulas and differences. Establish units, currency, tax basis and rounding from sources. Distinguish arithmetic error from unresolved basis, explain the effect and a usable correction or clarification.
+
+**Not good:** Reporting only a total; silently assuming tax inclusion or conversion rates; changing original values to match calculations; inferring the cause from a difference; calling every discrepancy a rejected bid.
+
+**Example:** A source lists 3 units at 0.1 currency units each and declares 0.4. Show 3 × 0.1 = 0.3 and a 0.1 discrepancy, cite the row and applicable correction clause; do not invent a rounding explanation.
+
+Assess material omissions, false positives, source-location correctness and actionability. These are quality criteria, not a quota of findings. A clean result needs an explanation of what was examined; an incomplete result identifies the exact gap and its effect. No accuracy percentage is claimed without an evaluated sample set.
+
+## Assignment and delivery
+
+Accept a clear natural-language assignment describing background, objective, available materials, authorized scope, quality expectations and delivery destination. Choose reading order, tools and presentation autonomously. Ask only about ambiguities that change the answer; continue independent checks with available material. No business input schema, metadata preflight or runtime receipt is required to begin.
+
+Deliver a usable professional conclusion, supporting locations, recommended actions and remaining limitations. Markdown, a table, a direct substantive reply or requested files are all valid; no fixed file count or six-artifact pack is required. If a file is requested, create it and check it is readable before reporting delivery. Reading and planning alone are not completion. On interruption, continue from usable work, identify gaps and deliver the completed portion honestly. For targeted rework, answer the specific concern and explain any changed conclusion. The lead accepts the substantive work; independent Evidence review is not self-certified.
+
+## Optional tool reference below
+
+Select the following methods as needed for the materials and conclusion. A calculation or measurement script's input/output constraints apply only when that script is used; every business task need not execute every tool. Check the actual capabilities and dependencies needed by the chosen method.
 
 ## Purpose
 
@@ -106,10 +123,6 @@ Before comparing multiple amounts, register each item's currency, unit, tax basi
 
 > These rules apply to any review round using this skill, independent of specific project paths or sample answers.
 
-### Reload Skill on Every Check
-
-- Before each review/check session, re-read this SKILL.md, `schemas/input.schema.json`, `schemas/output.schema.json`, and `scripts/recalc.py`. Do not rely on cached or previously-read versions from prior sessions or conversation history.
-
 ### Preserve Original Declared Values
 
 - When the user declares specific values (amounts, tax amounts, totals), record them verbatim as **declared values**.
@@ -168,7 +181,3 @@ Before comparing multiple amounts, register each item's currency, unit, tax basi
 - `舍入与口径说明.md` — Basis registration table template (Chinese)
 - `Basis-Reference.en.md` — Basis registration table template (English)
 - `SKILL.zh-CN.md` — This document (Chinese version)
-
-## Candidate file-backed delegation input
-
-After the platform capability is released and verified, use the [input preparation guide](delegation-input.md). Received delegated input is the complete `tender-delegation-input/v1` JSON document. Its `original_request.text` preserves the exact original request; `task_spec.value` preserves the full parsed Spec, while its SHA binds the original file bytes, not JSON reserialization. The new structural gate does not replace the original TaskSpec checker, source comparison, actual Skill execution, or independently verified receipts. Missing or mismatched evidence still blocks affected business work. Direct human maintenance requests remain outside this delegated-input contract.
