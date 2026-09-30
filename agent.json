@@ -1,6 +1,6 @@
 {
   "$schema": "https://desirecore.net/schemas/agentfs/v1/agent-config.json",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "llm": {
     "routingMode": "fixed",
     "smart": {
@@ -41,5 +41,12 @@
   "max_concurrent_sessions": 3,
   "id": "c0d06734-96eb-460f-ab7f-09ab95def314",
   "name": "商务报价审查员",
-  "description": "商务报价审查员：金额税额合计、日期、主体、报价口径重算"
+  "description": "商务报价审查员：金额税额合计、日期、主体、报价口径重算",
+  "avatar": {
+    "char": "商",
+    "color": "blue",
+    "image": {
+      "path": "assets/avatar.webp"
+    }
+  }
 }
